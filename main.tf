@@ -1,4 +1,12 @@
 terraform {
+  cloud {
+    organization = "nesle1936"
+
+    workspaces {
+      name = "yes"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -6,7 +14,18 @@ terraform {
   }
 }
 
+# terraform {
+#   cloud {
+#     organization = ""
+#     hostname = "app.terraform.io" # Optional; defaults to app.terraform.io
+
+#     workspaces {
+#       tags = ["dev"]
+#     }
+#   }
+# }
 # Configure the AWS Provider
+
 provider "aws" {
   region = var.region
   profile = var.profile_name
